@@ -37,7 +37,7 @@ public class PosyPlugin implements Plugin<Project> {
 
     def configureDependencies(Project project) {
         project.dependencies {
-            compile POSY_API_ARTIFACT
+            compileOnly POSY_API_ARTIFACT
         }
     }
 
@@ -52,7 +52,7 @@ public class PosyPlugin implements Plugin<Project> {
     void configurePluginExtension(Project project) {
         extension = project.extensions.findByName(PLUGIN_EXTENSION_NAME)
         if (!extension) {
-            extension = project.extensions.create(PLUGIN_EXTENSION_NAME)
+            extension = project.extensions.create(PLUGIN_EXTENSION_NAME, PosyPluginExtension)
         }
     }
 
